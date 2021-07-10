@@ -49,6 +49,7 @@ try:
             print("슈퍼챗 개수 = ", superchat_num)
             print("=" * 100)
 
+
 except Exception as e:
     print("페이지 파싱 에러", e)
 
