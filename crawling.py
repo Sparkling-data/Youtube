@@ -1,7 +1,7 @@
-# from _typeshed import NoneType
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import time
+import re
 # from selenium.webdriver.support.ui import WebDriverWait
 
 main_url = "https://playboard.co/"
@@ -32,19 +32,22 @@ try:
         noads = item.text
 
         if noads != "":
-            protitle = item.find("a")['title']
-            # img_src = item.find("img")['data-src']
+            prolevel = item.find("div", {"class":"current"}).text
+            protitle = item.find("img")['alt']
+            protag = item.find("ul", {"class":"name__tags ttags"})
+            superchat = item.find("span", {"class":"fluc-label fluc-label--mono-font fluc-label--ko fluc-label--symbol-math up"}).text
+            superchat_num = item.find("span", {"class":"fluc-label fluc-label--mono-color fluc-label--mono-font fluc-label--ko fluc-label--symbol-math up"}).text
 
+            protag = str(protag)
+            exp = re.compile('#\w+')
+            protag = exp.findall(protag)
+
+            print("No_{}".format(prolevel))
             print("채널명 = ", protitle)
-            # print("태그 = ", protag)
-            # print("순위 = ", prolevel)
-            # print("슈퍼챗 수입 = ", proscore)
-            # print("슈퍼챗 개수 = ", proJumsu)
-            # print("썸네일=", img_src)
+            print("태그 = ", protag)
+            print("슈퍼챗 수입 = ", superchat)
+            print("슈퍼챗 개수 = ", superchat_num)
             print("=" * 100)
-
-            time.sleep(5)
-            driver.implicitly_wait(5)
 
 except Exception as e:
     print("페이지 파싱 에러", e)
