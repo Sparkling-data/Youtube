@@ -76,7 +76,6 @@ class SuperChat():
 
                     print("No_{}".format(prolevel))
                     print("채널명 = ", protitle)
-                    # for tag in protag:
                     print("태그 = ", tag)
                     print("슈퍼챗 수입 = ", superchat)
                     print("슈퍼챗 개수 = ", superchat_num)
@@ -91,10 +90,10 @@ class SuperChat():
             driver.close()
 
             # pandas로 crawling data exel 저장
-            # df = pd.DataFrame(results)
-            # df.columns = ['순위', '채널명', '태그', '슈퍼챗수입', '슈퍼챗개수']
-            # df.to_excel('savedata/superchat.xlsx', index = False)
-            # print("---------crawling file save 완료------------")
+            df = pd.DataFrame(results)
+            df.columns = ['순위', '채널명', '태그', '슈퍼챗수입', '슈퍼챗개수']
+            df.to_excel('./savedata/supercraw.xlsx', index = False)
+            print("---------crawling file save 완료------------")
 
 
     def LiveRank():
@@ -142,12 +141,6 @@ class SuperChat():
                     protitle = item.find("img")['alt']
                     protag = item.find("ul", {"class":"name__tags ttags"})
                     LiveYoutube = item.find("span", {"class":"fluc-label fluc-label--mono-font fluc-label--ko fluc-label--symbol-none up"}).text
-        # 경로 LiveYoutube
-        #app > div.__window > div > main > div > div.container.container--mfit > table > tbody > tr:nth-child(1) > td.score > span
-        #class="fluc-label fluc-label--mono-font fluc-label--ko fluc-label--symbol-none up"
-        # Superchat 경로
-        #app > div.__window > div > main > div > div.container.container--mfit > table > tbody > tr:nth-child(1) > td:nth-child(4) > span
-        #class="fluc-label fluc-label--mono-font fluc-label--ko fluc-label--symbol-math up"
                     
                     protag = str(protag)
                     exp = re.compile('#\w+')
@@ -157,27 +150,26 @@ class SuperChat():
                     data = [prolevel, protitle, tag,LiveYoutube]
                     results.append(data)
 
-
-
                     print("No_{}".format(prolevel))
                     print("채널명 = ", protitle)
-                    # for tag in protag:
+
                     print("태그 = ", tag)
                     print("최고 동시 시청자수 = ", LiveYoutube)
                     print("=" * 100)
 
-                    df = pd.DataFrame(results)
-                    df.columns = ['순위', '채널명', '태그', '최고 동시 시정자수']
-                    df.to_excel('savedata/LiveRank.xlsx', index = False)
-                    print("---------crawling file save 완료------------")      
         except Exception as e:
             print("페이지 파싱 에러", e)
+
         finally:
             time.sleep(3)
             print("크롤링을 종료합니다.")
             driver.close()
 
-
+            # pandas로 crawling data exel 저장
+            df = pd.DataFrame(results)
+            df.columns = ['순위', '채널명', '태그', '최고 동시 시정자수']
+            df.to_excel('./savedata/LiveRank.xlsx', index = False)
+            print("---------crawling file save 완료------------")
 
 
 
@@ -257,13 +249,6 @@ class SuperChat():
                     print("일일 좋아요 수 = ", Like)
                     print("=" * 100)
 
-
-
-                    df = pd.DataFrame(results)
-                    df.columns = ['순위', '채널명', '태그', '일일조회수', '일일 좋아요 수']
-                    df.to_excel('savedata/mostviewvideo.xlsx', index = False)
-                    print("---------crawling file save 완료------------")           
-
         except Exception as e:
             print("페이지 파싱 에러", e)
 
@@ -271,6 +256,10 @@ class SuperChat():
             time.sleep(3)
             print("크롤링을 종료합니다.")
             driver.close()
+            df = pd.DataFrame(results)
+            df.columns = ['순위', '채널명', '태그', '일일조회수', '일일 좋아요 수']
+            df.to_excel('./savedata/mostviewvideo.xlsx', index = False)
+            print("---------crawling file save 완료------------")           
 
 
     def subsoaring():
@@ -359,14 +348,10 @@ class SuperChat():
             time.sleep(3)
             print("크롤링을 종료합니다.")
             driver.close()
-
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '신규구독자', '전체구독자']
-            df.to_excel('savedata/subsoaring.xlsx', index = False)
+            df.to_excel('./savedata/subsoaring.xlsx', index = False)
             print("---------crawling file save 완료------------")
-
-
-
 
 
     def mostview():
@@ -455,13 +440,10 @@ class SuperChat():
             time.sleep(3)
             print("크롤링을 종료합니다.")
             driver.close()
-
-
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '조회수']
-            df.to_excel('savedata/mostview.xlsx', index = False)
+            df.to_excel('./savedata/mostview.xlsx', index = False)
             print("---------crawling file save 완료------------")
-
 
     def mostviewad():
         main_url = "https://playboard.co/"
@@ -553,17 +535,15 @@ class SuperChat():
 
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '조회수']
-            df.to_excel('savedata/mostviewad.xlsx', index = False)
+            df.to_excel('./savedata/mostviewad.xlsx', index = False)
             print("---------crawling file save 완료------------")
-
-
 
 
 
 if __name__=='__main__':
 #    SuperChat.supercraw() 
-   SuperChat.LiveRank() 
+#    SuperChat.LiveRank() 
 #    SuperChat.subsoaring() 
-#    SuperChat.mostview() 
+#    SuperChat.mostview()
 #    SuperChat.mostviewvideo() 
-#    SuperChat.mostviewad() 
+   SuperChat.mostviewad() 
