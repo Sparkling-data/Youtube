@@ -92,7 +92,8 @@ class SuperChat():
             # pandas로 crawling data exel 저장
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '슈퍼챗수입', '슈퍼챗개수']
-            df.to_excel('./savedata/supercraw.xlsx', index = False)
+            # df.to_excel('C:/202105_lab/Youtube/crawling/savedata/supercraw.xlsx', index = False)
+            df.to_csv('C:/202105_lab/Youtube/crawling/savedata/supercraw.csv', index = False)
             print("---------crawling file save 완료------------")
 
 
@@ -168,7 +169,8 @@ class SuperChat():
             # pandas로 crawling data exel 저장
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '최고 동시 시정자수']
-            df.to_excel('./savedata/LiveRank.xlsx', index = False)
+            # df.to_excel('C:/202105_lab/Youtube/crawling/savedata/LiveRank.csv', index = False)
+            df.to_csv('C:/202105_lab/Youtube/crawling/savedata/LiveRank.csv', index = False)
             print("---------crawling file save 완료------------")
 
 
@@ -258,8 +260,10 @@ class SuperChat():
             driver.close()
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '일일조회수', '일일 좋아요 수']
-            df.to_excel('./savedata/mostviewvideo.xlsx', index = False)
+            # df.to_excel('C:/202105_lab/Youtube/crawling/savedata/mostviewvideo.xlsx', index = False)
+            df.to_csv('C:/202105_lab/Youtube/crawling/savedata/mostviewvideo.csv', index = False)
             print("---------crawling file save 완료------------")           
+
 
 
     def subsoaring():
@@ -350,8 +354,11 @@ class SuperChat():
             driver.close()
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '신규구독자', '전체구독자']
-            df.to_excel('./savedata/subsoaring.xlsx', index = False)
+            # df.to_excel('C:/202105_lab/Youtube/crawling/savedata/subsoaring.xlsx', index = False)
+            df.to_csv('C:/202105_lab/Youtube/crawling/savedata/subsoaring.csv', index = False)
             print("---------crawling file save 완료------------")
+
+
 
 
     def mostview():
@@ -442,8 +449,12 @@ class SuperChat():
             driver.close()
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '조회수']
-            df.to_excel('./savedata/mostview.xlsx', index = False)
+            # df.to_excel('C:/202105_lab/Youtube/crawling/savedata/mostview.xlsx', index = False)
+            df.to_csv('C:/202105_lab/Youtube/crawling/savedata/mostview.csv', index = False)
             print("---------crawling file save 완료------------")
+
+
+
 
     def mostviewad():
         main_url = "https://playboard.co/"
@@ -535,15 +546,16 @@ class SuperChat():
 
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '조회수']
-            df.to_excel('./savedata/mostviewad.xlsx', index = False)
+            # df.to_excel('C:/202105_lab/Youtube/crawling/savedata/mostviewad.xlsx', index = False)
+            df.to_csv('C:/202105_lab/Youtube/crawling/savedata/mostviewad.csv', index = False)
             print("---------crawling file save 완료------------")
 
 
 
 if __name__=='__main__':
-#    SuperChat.supercraw() 
+   SuperChat.supercraw() 
 #    SuperChat.LiveRank() 
 #    SuperChat.subsoaring() 
 #    SuperChat.mostview()
 #    SuperChat.mostviewvideo() 
-   SuperChat.mostviewad() 
+#    SuperChat.mostviewad() 
