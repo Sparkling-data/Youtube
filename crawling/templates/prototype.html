@@ -13,7 +13,7 @@
     <button onclick="LiveRank()">라이브 시청자 순위</button>
     <button onclick="LiveRank_week()">주간 라이브 시청자 순위</button><br>
     <button onclick="mostviewvideo()">인기 순위</button>
-    <button onclick="mostviewvideoweek()">주간 인기 순위</button><br>
+    <button onclick="mostviewvideo_week()">주간 인기 순위</button><br>
     <button onclick="subsoaring()">구독자 급상승 순위</button>
     <button onclick="subsoaring_week()">주간 구독자 급상승 순위</button><br>
     <button onclick="mostview()">최다 조회 영상</button>
@@ -105,7 +105,7 @@
         }
 
 
-        function mostviewvideoweek() {
+        function mostviewvideo_week() {
             const xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {                 
                 if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
@@ -116,7 +116,7 @@
                     
                 }   
             };
-            xhttp.open("get", "mostviewvideoweek");
+            xhttp.open("get", "mostviewvideo_week");
             xhttp.send();
         }
 
