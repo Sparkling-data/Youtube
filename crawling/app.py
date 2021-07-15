@@ -40,10 +40,10 @@ def mostviewvideo_view():
     return SuperChat().mostviewvideo()
 
 
-@app.route('/mostviewvideoweek', methods=["get"])
-def mostviewvideoweekview():
+@app.route('/mostviewvideo_week', methods=["get"])
+def mostviewvideo_week_view():
 
-    return SuperChat().mostviewvideoweek()
+    return SuperChat().mostviewvideo_week()
 
 
 @app.route('/subsoaring', methods=["get"])
