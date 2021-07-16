@@ -534,7 +534,7 @@ class SuperChat():
         main_url = "https://playboard.co/"
         results = []
 
-        driver = webdriver.Chrome("c:/driver/chromedriver.exe")
+        driver = webdriver.Chrome("C:/driver/chromedriver.exe")
 
         driver.get(main_url)
         time.sleep(3)
@@ -604,7 +604,7 @@ class SuperChat():
                     print("채널명 = ", protitle)
                     # for tag in protag:
                     print("태그 = ", tag)
-                    print("일일 신규구독자 = ", superchat)
+                    print("일일_신규구독자 = ", superchat)
                     print("전체구독자 = ", superchat_num)
                     print("=" * 100)
 
@@ -617,7 +617,7 @@ class SuperChat():
             print("크롤링을 종료합니다.")
             driver.close()
             df = pd.DataFrame(results)
-            df.columns = ['순위', '채널명', '태그', '일일 신규구독자', '전체구독자']
+            df.columns = ['순위', '채널명', '태그', '일일_신규구독자', '전체구독자']
             df.to_csv('./savedata/subsoaring.csv', index = False)
             print("---------crawling file save 완료------------")
 
@@ -628,7 +628,7 @@ class SuperChat():
         main_url = "https://playboard.co/"
         results = []
 
-        driver = webdriver.Chrome("c:/driver/chromedriver.exe")
+        driver = webdriver.Chrome("C:/driver/chromedriver.exe")
 
         driver.get(main_url)
         time.sleep(3)
@@ -636,6 +636,8 @@ class SuperChat():
 
         superchat = driver.find_element_by_link_text("구독자 급상승 순위")
         superchat.click()
+        time.sleep(3)
+        #driver.find_element_by_css_selector("#app > div.__window > div > main > div > div.cnavi.cnavi > div > div > div > div:nth-child(4) > ul > li:nth-child(2) > span").click()
         driver.find_element_by_css_selector("#app > div.__window > div > main > div > div.cnavi.cnavi > div > div > div > div:nth-child(4) > ul > li:nth-child(2) > span").click()
         time.sleep(3)
         driver.implicitly_wait(2)
@@ -699,7 +701,7 @@ class SuperChat():
                     print("채널명 = ", protitle)
                     # for tag in protag:
                     print("태그 = ", tag)
-                    print("주간 신규구독자 = ", superchat)
+                    print("주간_신규구독자 = ", superchat)
                     print("전체구독자 = ", superchat_num)
                     print("=" * 100)
 
@@ -712,7 +714,7 @@ class SuperChat():
             print("크롤링을 종료합니다.")
             driver.close()
             df = pd.DataFrame(results)
-            df.columns = ['순위', '채널명', '태그', '주간 신규구독자', '전체구독자']
+            df.columns = ['순위', '채널명', '태그', '주간_신규구독자', '전체구독자']
             df.to_csv('./savedata/subsoaring_week.csv', index = False)
             print("---------crawling file save 완료------------")
 
@@ -793,7 +795,7 @@ class SuperChat():
                     print("채널명 = ", protitle)
                     # for tag in protag:
                     print("태그 = ", tag)
-                    print("조회수 = ", superchat)
+                    print("일일_조회수 = ", superchat)
                     # print("슈퍼챗 개수 = ", superchat_num)
                     print("=" * 100)
 
@@ -806,7 +808,7 @@ class SuperChat():
             print("크롤링을 종료합니다.")
             driver.close()
             df = pd.DataFrame(results)
-            df.columns = ['순위', '채널명', '태그', '조회수']
+            df.columns = ['순위', '채널명', '태그', '일일_조회수']
             df.to_csv('./savedata/mostview.csv', index = False)
             print("---------crawling file save 완료------------")
 
@@ -824,6 +826,7 @@ class SuperChat():
 
         superchat = driver.find_element_by_link_text("최다 조회 영상")
         superchat.click()
+        time.sleep(3)
         driver.find_element_by_css_selector("#app > div.__window > div > main > div > div.cnavi.cnavi > div > div > div > div:nth-child(4) > ul > li:nth-child(2) > span").click()
         time.sleep(3)
         driver.implicitly_wait(2)
@@ -887,7 +890,7 @@ class SuperChat():
                     print("채널명 = ", protitle)
                     # for tag in protag:
                     print("태그 = ", tag)
-                    print("주간 조회수 = ", superchat)
+                    print("주간_조회수 = ", superchat)
                     # print("슈퍼챗 개수 = ", superchat_num)
                     print("=" * 100)
 
@@ -900,7 +903,7 @@ class SuperChat():
             print("크롤링을 종료합니다.")
             driver.close()
             df = pd.DataFrame(results)
-            df.columns = ['순위', '채널명', '태그', '주간 조회수']
+            df.columns = ['순위', '채널명', '태그', '주간_조회수']
             df.to_csv('./savedata/mostview_week.csv', index = False)
             print("---------crawling file save 완료------------")
 
@@ -983,7 +986,7 @@ class SuperChat():
                     print("채널명 = ", protitle)
                     # for tag in protag:
                     print("태그 = ", tag)
-                    print("일일 광고조회수 = ", superchat)
+                    print("일일_유료컨텐츠조회수 = ", superchat)
                     # print("슈퍼챗 개수 = ", superchat_num)
                     print("=" * 100)
 
@@ -998,7 +1001,7 @@ class SuperChat():
 
 
             df = pd.DataFrame(results)
-            df.columns = ['순위', '채널명', '태그', '일일 광고조회수']
+            df.columns = ['순위', '채널명', '태그', '일일_유료컨텐츠조회수']
             df.to_csv('./savedata/mostviewad.csv', index = False)
             print("---------crawling file save 완료------------")
 
@@ -1016,6 +1019,7 @@ class SuperChat():
 
         superchat = driver.find_element_by_link_text("최다 조회 광고")
         superchat.click()
+        time.sleep(3)
         driver.find_element_by_css_selector("#app > div.__window > div > main > div > div.cnavi.cnavi > div > div.cnavi__wrapper > div > div:nth-child(4) > ul > li:nth-child(2) > span").click()
         time.sleep(3)
         driver.implicitly_wait(2)
@@ -1079,7 +1083,7 @@ class SuperChat():
                     print("채널명 = ", protitle)
                     # for tag in protag:
                     print("태그 = ", tag)
-                    print("주간 광고조회수 = ", superchat)
+                    print("주간_유료컨텐츠조회수 = ", superchat)
                     # print("슈퍼챗 개수 = ", superchat_num)
                     print("=" * 100)
 
@@ -1094,22 +1098,22 @@ class SuperChat():
 
 
             df = pd.DataFrame(results)
-            df.columns = ['순위', '채널명', '태그', '주간 광고조회수']
+            df.columns = ['순위', '채널명', '태그', '주간_유료컨텐츠조회수']
             df.to_csv('./savedata/mostviewad_week.csv', index = False)
             print("---------crawling file save 완료------------")
 
 
 
 if __name__=='__main__':
-#    SuperChat.supercraw() 
-#    SuperChat.supercraw_week() 
-#    SuperChat.LiveRank() 
-#    SuperChat.LiveRank_week() 
-#    SuperChat.subsoaring() 
-#    SuperChat.subsoaring_week() 
-#    SuperChat.mostview()
-#    SuperChat.mostview_week()
-#    SuperChat.mostviewvideo()
-#    SuperChat.mostviewvideo_week()
-#    SuperChat.mostviewad() 
+    #SuperChat.supercraw() 
+    #SuperChat.supercraw_week() 
+    #SuperChat.LiveRank() 
+    #SuperChat.LiveRank_week() 
+    #SuperChat.subsoaring()
+    #SuperChat.subsoaring_week() 
+    #SuperChat.mostview()
+    #SuperChat.mostview_week()
+    #SuperChat.mostviewvideo()
+    #SuperChat.mostviewvideo_week()
+    #SuperChat.mostviewad() 
     SuperChat.mostviewad_week()

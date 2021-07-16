@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="supercraw()">슈퍼챗 순위</button>
+    <button onclick="supercraw_week()">주간 슈퍼챗 순위</button><br>
+    <button onclick="LiveRank()">라이브 시청자 순위</button>
+    <button onclick="LiveRank_week()">주간 라이브 시청자 순위</button><br>
+    <button onclick="mostviewvideo()">인기 순위</button>
+    <button onclick="mostviewvideo_week()">주간 인기 순위</button><br>
+    <button onclick="subsoaring()">구독자 급상승 순위</button>
+    <button onclick="subsoaring_week()">주간 구독자 급상승 순위</button><br>
+    <button onclick="mostview()">최다 조회 영상</button>
+    <button onclick="mostview_week()">주간 최다 조회 영상</button><br>
+    <button onclick="mostviewad()">최다 조회 광고</button>
+    <button onclick="mostviewad_week()">주간 최대 조회 광고</button><br>
+
+    <div id="demo"></div>
+
+    <script>
+        function supercraw() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "supercraw");
+            xhttp.send();
+        }
+
+        function supercraw_week() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "supercraw_week");
+            xhttp.send();
+        }
+
+
+
+        function LiveRank() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "LiveRank");
+            xhttp.send();
+        }
+
+
+
+        function LiveRank_week() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "supercraw");
+            xhttp.send();
+        }
+
+
+        function mostviewvideo() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "mostviewvideo");
+            xhttp.send();
+        }
+
+
+        function mostviewvideo_week() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "mostviewvideo_week");
+            xhttp.send();
+        }
+
+
+
+        function subsoaring() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "subsoaring");
+            xhttp.send();
+        }
+
+
+
+        function subsoaring_week() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "subsoaring_week");
+            xhttp.send();
+        }
+
+
+        function mostview() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "mostview");
+            xhttp.send();
+        }
+
+
+        function mostview_week() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "mostview_week");
+            xhttp.send();
+        }
+
+
+
+
+
+        function mostviewad() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "mostviewad");
+            xhttp.send();
+        }
+
+
+
+        function mostviewad_week() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "mostviewad_week");
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>
