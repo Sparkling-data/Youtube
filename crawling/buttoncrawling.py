@@ -113,6 +113,7 @@ class SuperChat():
 
         superchat = driver.find_element_by_link_text("슈퍼챗 순위")
         superchat.click()
+        # 크롤링하는데있어 모든 경로를 보는것은 좋지않은 방식, 할아버지정도만 불러와도 충분함
         driver.find_element_by_css_selector("#app > div.__window > div > main > div > div.cnavi.cnavi > div > div > div > div:nth-child(4) > ul > li:nth-child(2) > span").click()
         time.sleep(3)
         driver.implicitly_wait(2)
