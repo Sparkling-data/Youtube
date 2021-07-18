@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="supercraw()">슈퍼챗 순위</button>
+    <button onclick="supercraw_week()">주간 슈퍼챗 순위</button><br>
+    <button onclick="LiveRank()">라이브 시청자 순위</button>
+    <button onclick="LiveRank_week()">주간 라이브 시청자 순위</button><br>
+    <button onclick="mostviewvideo()">인기 순위</button>
+    <button onclick="mostviewvideo_week()">주간 인기 순위</button><br>
+    <button onclick="subsoaring()">구독자 급상승 순위</button>
+    <button onclick="subsoaring_week()">주간 구독자 급상승 순위</button><br>
+    <button onclick="mostview()">최다 조회 영상</button>
+    <button onclick="mostview_week()">주간 최다 조회 영상</button><br>
+    <button onclick="mostviewad()">최다 조회 광고</button>
+    <button onclick="mostviewad_week()">주간 최대 조회 광고</button><br>
+
+    <div id="demo"></div>
+
+    <br><hr><br>
+    일간 데이터<br>
+    <input type="text" id="chart_date" placeholder="날짜를 입력해주세요 ex)20210717"  value="20210717"><br>
+    <input type="text" id="chart_num" placeholder="원하는 데이터 개수를 입력해주세요"><br>
+    <button onclick="supercraw_chart()">슈퍼챗 순위</button>
+    <button onclick="LiveRank_chart()">라이브 시청자 순위</button>
+    <button onclick="mostviewvideo_chart()">인기 순위</button>
+    <button onclick="subsoaring_chart()">구독자 급상승 순위</button>
+    <button onclick="mostview_chart()">최다 조회 영상</button>
+    <button onclick="mostviewad_chart()">최다 조회 광고</button>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+
+
+    주간 데이터<br>
+    <input type="text" id="chart_date2" placeholder="날짜를 입력해주세요 ex)20210717"  value="202107050711"><br>
+    <input type="text" id="chart_num2" placeholder="원하는 데이터 개수를 입력해주세요"><br>
+    <button onclick="supercraw_week_chart()">슈퍼챗 순위</button>
+    <button onclick="LiveRank_week_chart()">라이브 시청자 순위</button>
+    <button onclick="mostviewvideo_week_chart()">인기 순위</button>
+    <button onclick="subsoaring_week_chart()">구독자 급상승 순위</button>
+    <button onclick="mostview_week_chart()">최다 조회 영상</button>
+    <button onclick="mostviewad_week_chart()">데이터 가져오는 버튼</button>
+    <div id="piechart2" style="width: 900px; height: 500px;"></div>
+
+
+
+    
+
+    <script>
+        function supercraw() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "supercraw");
+            xhttp.send();
+        }
+
+        function supercraw_week() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "supercraw_week");
+            xhttp.send();
+        }
+
+
+
+        function LiveRank() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "LiveRank");
+            xhttp.send();
+        }
+
+
+
+        function LiveRank_week() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "LiveRank_week");
+            xhttp.send();
+        }
+
+
+        function mostviewvideo() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "mostviewvideo");
+            xhttp.send();
+        }
+
+
+        function mostviewvideo_week() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "mostviewvideo_week");
+            xhttp.send();
+        }
+
+
+
+        function subsoaring() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "subsoaring");
+            xhttp.send();
+        }
+
+
+
+        function subsoaring_week() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "subsoaring_week");
+            xhttp.send();
+        }
+
+
+        function mostview() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "mostview");
+            xhttp.send();
+        }
+
+
+        function mostview_week() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "mostview_week");
+            xhttp.send();
+        }
+
+
+
+
+
+        function mostviewad() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "mostviewad");
+            xhttp.send();
+        }
+
+
+
+        function mostviewad_week() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {                 
+                if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증
+                    
+                    data = this.responseText;
+                    console.log(data);
+                    document.getElementById("demo").innerHTML = data;
+                    
+                }   
+            };
+            xhttp.open("get", "mostviewad_week");
+            xhttp.send();
+        }
+    </script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+
+        function supercraw_chart() {
+            const xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {                 
+                    if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증   
+
+                        data = this.responseText;  
+                        data = eval(data);
+                        console.log(data);   
+                        
+                        console.log(data[2].일일_슈퍼챗수입);
+
+                        chas = [['Task', 'Hours per Day']]; 
+                        
+                        for (i in data){
+
+                            chas.push([data[i].채널명, data[i].일일_슈퍼챗수입]);
+                        }
+
+                        var chart_data = google.visualization.arrayToDataTable(chas);
+                        var options = {
+                            title: '슈퍼챗 수입 비율'
+                        };
+                        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                        chart.draw(chart_data, options);
+                    }   
+                };
+                xhttp.open("post", "supercraw_chart");
+                queryString = "chart_num="+document.getElementById("chart_num").value + "&chart_date=" + document.getElementById("chart_date").value;
+
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send(queryString);
+        }
+
+        function LiveRank_chart() {
+            const xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {                 
+                    if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증   
+
+                        data = this.responseText;  
+                        data = eval(data);
+                        console.log(data);   
+                        
+                        console.log(data[2].최고_동시_시청자수);
+
+                        chas = [['Task', 'Hours per Day']]; 
+                        
+                        for (i in data){
+
+                            chas.push([data[i].채널명, data[i].최고_동시_시청자수]);
+                        }
+
+                        var chart_data = google.visualization.arrayToDataTable(chas);
+                        var options = {
+                            title: '최고 동시 시청자수'
+                        };
+                        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                        chart.draw(chart_data, options);
+
+
+                            
+
+                    }   
+                };
+                xhttp.open("post", "LiveRank_chart");
+                queryString = "chart_num="+document.getElementById("chart_num").value + "&chart_date=" + document.getElementById("chart_date").value;
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send(queryString);
+        }
+
+
+
+        function mostviewvideo_chart() {
+            const xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {                 
+                    if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증   
+
+                        data = this.responseText;  
+                        data = eval(data);
+                        console.log(data);   
+                        
+                        console.log(data[2].일일조회수);
+
+                        chas = [['Task', 'Hours per Day']]; 
+                        
+                        for (i in data){
+
+                            chas.push([data[i].채널명, data[i].일일조회수]);
+                        }
+
+                        var chart_data = google.visualization.arrayToDataTable(chas);
+                        var options = {
+                            title: '최고 인기 영상'
+                        };
+                        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                        chart.draw(chart_data, options);
+
+
+                            
+
+                    }   
+                };
+                xhttp.open("post", "mostviewvideo_chart");
+                queryString = "chart_num="+document.getElementById("chart_num").value + "&chart_date=" + document.getElementById("chart_date").value;
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send(queryString);
+        }
+
+
+        function subsoaring_chart() {
+            const xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {                 
+                    if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증   
+
+                        data = this.responseText;  
+                        data = eval(data);
+                        console.log(data);   
+                        
+                        console.log(data[2].전체구독자);
+
+                        chas = [['Task', 'Hours per Day']]; 
+                        
+                        for (i in data){
+
+                            chas.push([data[i].채널명, data[i].전체구독자]);
+                        }
+
+                        var chart_data = google.visualization.arrayToDataTable(chas);
+                        var options = {
+                            title: '구독자수 비율'
+                        };
+                        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                        chart.draw(chart_data, options);
+
+
+                            
+
+                    }   
+                };
+                xhttp.open("post", "subsoaring_chart");
+                queryString = "chart_num="+document.getElementById("chart_num").value + "&chart_date=" + document.getElementById("chart_date").value;
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send(queryString);
+        }
+
+        function mostview_chart() {
+            const xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {                 
+                    if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증   
+
+                        data = this.responseText;  
+                        data = eval(data);
+                        console.log(data);   
+                        
+                        console.log(data[2].일일조회수);
+
+                        chas = [['Task', 'Hours per Day']]; 
+                        
+                        for (i in data){
+
+                            chas.push([data[i].채널명, data[i].일일조회수]);
+                        }
+
+                        var chart_data = google.visualization.arrayToDataTable(chas);
+                        var options = {
+                            title: '최다 조회 영상'
+                        };
+                        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                        chart.draw(chart_data, options);
+
+
+                            
+
+                    }   
+                };
+                xhttp.open("post", "mostview_chart");
+                queryString = "chart_num="+document.getElementById("chart_num").value + "&chart_date=" + document.getElementById("chart_date").value;
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send(queryString);
+        }
+
+        function mostviewad_chart() {
+            const xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {                 
+                    if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증   
+
+                        data = this.responseText;  
+                        data = eval(data);
+                        console.log(data);   
+                        
+                        console.log(data[2].일일_유료컨텐츠조회수);
+
+                        chas = [['Task', 'Hours per Day']]; 
+                        
+                        for (i in data){
+
+                            chas.push([data[i].채널명, data[i].일일_유료컨텐츠조회수]);
+                        }
+
+                        var chart_data = google.visualization.arrayToDataTable(chas);
+                        var options = {
+                            title: '최다 조회 광고'
+                        };
+                        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                        chart.draw(chart_data, options);
+
+
+                            
+
+                    }   
+                };
+                xhttp.open("post", "mostviewad_chart");
+                queryString = "chart_num="+document.getElementById("chart_num").value + "&chart_date=" + document.getElementById("chart_date").value;
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send(queryString);
+        }
+
+
+        function supercraw_week_chart() {
+            const xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {                 
+                    if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증   
+
+                        data = this.responseText;  
+                        data = eval(data);
+                        console.log(data);  
+                        
+                        console.log(data[2].주간_슈퍼챗수입);
+
+                        chas = [['Task', 'Hours per Day']]; 
+                        
+                        for (i in data){
+
+                            chas.push([data[i].채널명, data[i].주간_슈퍼챗수입]);
+                        }
+
+                        var chart_data = google.visualization.arrayToDataTable(chas);
+                        var options = {
+                            title: '주간 슈퍼챗 수입 비율'
+                        };
+                        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+                        chart.draw(chart_data, options);
+                    }   
+                };
+                xhttp.open("post", "supercraw_chart_week");
+                queryString = "chart_num2="+document.getElementById("chart_num2").value + "&chart_date2=" + document.getElementById("chart_date2").value;
+
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send(queryString);
+        }
+    </script>
+</body>
+</html>
