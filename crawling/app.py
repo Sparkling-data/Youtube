@@ -65,7 +65,7 @@ def mostview_view():
 
 
 @app.route('/mostview_week', methods=["get"])
-def smostview_week_view():
+def mostview_week_view():
 
     return SuperChat().mostview_week()
 
