@@ -1,13 +1,13 @@
 from flask.json import jsonify
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,url_for
 from buttoncrawling import SuperChat
 
 app = Flask(__name__)
 
-@app.route('/', methods=["GET"])
-def index_view():
+# @app.route('/', methods=["GET"])
+# def index_view():
 
-    return render_template('prototype.html')
+#     return render_template('prototype.html')
 
 
 @app.route('/supercraw', methods=["get"])
@@ -80,6 +80,17 @@ def mostviewad_view():
 def mostviewad_week_view():
 
     return SuperChat().mostviewad_week()
+
+@app.route('/', methods = ["GET"])
+def table_view():
+
+    return render_template('tables.html')
+
+@app.route('/charts', methods = ['GET'])
+def chart_view():
+
+    return render_template('charts.html')
+
 
 
 
