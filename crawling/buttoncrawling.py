@@ -420,7 +420,7 @@ class SuperChat():
                     
                     # Like값중에 None값이 있어서 해결하기위해 넣은코드
                     if Like is None:
-                        Like = "-"
+                        Like = "0"
                     else:
                         Like = Like.text
 
@@ -516,7 +516,7 @@ class SuperChat():
                     
                     # Like값중에 None값이 있어서 해결하기위해 넣은코드
                     if Like is None:
-                        Like = "-"
+                        Like = "0"
                     else:
                         Like = Like.text
 
