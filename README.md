@@ -1,5 +1,8 @@
-<h1 align='center'>:movie_camera: Youtube 트렌드 분석 :movie_camera:
+<h1 align='center'>:movie_camera: Youtube 트렌드 분석 :movie_camera:</p>
 <br>
+<h2> :date: Period</p>
+<h4> 2021/07/10(토) - 2021/07/18(일)
+<br><br>
 <h2> :dancers: Team</p>
 <h4> <a href = "https://github.com/dlwlsdudo1"><h6>이진영</a></details>&nbsp;,&nbsp;
 <a href = "https://github.com/sujeong-jang-creator">장수정</a></details>&nbsp;,&nbsp;
