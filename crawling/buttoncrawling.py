@@ -92,7 +92,7 @@ class SuperChat():
             # pandas로 crawling data exel 저장
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '일일 슈퍼챗수입', '일일 슈퍼챗개수']
-            df.to_csv('./savedata/supercraw.csv', index = False)
+            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/supercraw.csv', index = False)
             # print("---------crawling file save 완료------------")
             data = "크롤링완료"
 
@@ -188,7 +188,7 @@ class SuperChat():
             # pandas로 crawling data exel 저장
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '주간 슈퍼챗수입', '주간 슈퍼챗개수']
-            df.to_csv('./savedata/supercraw_week.csv', index = False)
+            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/supercraw_week.csv', index = False)
             # print("---------crawling file save 완료------------")
             data = "크롤링완료"
 
@@ -274,7 +274,7 @@ class SuperChat():
             # pandas로 crawling data exel 저장
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '최고 동시 시정자수']
-            df.to_csv('./savedata/LiveRank.csv', index = False)
+            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/LiveRank.csv', index = False)
             # print("---------crawling file save 완료------------")
             data = "크롤링완료"
 
@@ -356,7 +356,7 @@ class SuperChat():
             # pandas로 crawling data exel 저장
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '주간 최고 동시 시청자수']
-            df.to_csv('./savedata/LiveRank_week.csv', index = False)
+            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/LiveRank_week.csv', index = False)
             # print("---------crawling file save 완료------------")
             data = "크롤링완료"
 
@@ -449,7 +449,7 @@ class SuperChat():
             driver.close()
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '일일조회수', '일일 좋아요 수']
-            df.to_csv('./savedata/mostviewvideo.csv', index = False)
+            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/mostviewvideo.csv', index = False)
             # print("---------crawling file save 완료------------")
             data = "크롤링완료"
 
@@ -545,7 +545,7 @@ class SuperChat():
             driver.close()
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '주간 조회수', '주간 좋아요 수']
-            df.to_csv('./savedata/mostviewvideo_week.csv', index = False)
+            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/mostviewvideo_week.csv', index = False)
             # print("---------crawling file save 완료------------")           
             data = "크롤링완료"
 
@@ -641,7 +641,7 @@ class SuperChat():
             driver.close()
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '일일_신규구독자', '전체구독자']
-            df.to_csv('./savedata/subsoaring.csv', index = False)
+            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/subsoaring.csv', index = False)
             # print("---------crawling file save 완료------------")
             data = "크롤링완료"
 
@@ -741,7 +741,7 @@ class SuperChat():
             driver.close()
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '주간_신규구독자', '전체구독자']
-            df.to_csv('./savedata/subsoaring_week.csv', index = False)
+            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/subsoaring_week.csv', index = False)
             # print("---------crawling file save 완료------------")
             data = "크롤링완료"
 
@@ -839,7 +839,7 @@ class SuperChat():
             driver.close()
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '일일_조회수']
-            df.to_csv('./savedata/mostview.csv', index = False)
+            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/mostview.csv', index = False)
             # print("---------crawling file save 완료------------")
             data = "크롤링완료"
 
@@ -937,7 +937,7 @@ class SuperChat():
             driver.close()
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '주간_조회수']
-            df.to_csv('./savedata/mostview_week.csv', index = False)
+            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/mostview_week.csv', index = False)
             # print("---------crawling file save 완료------------")
             data = "크롤링완료"
 
@@ -1038,7 +1038,7 @@ class SuperChat():
 
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '일일_유료컨텐츠조회수']
-            df.to_csv('./savedata/mostviewad.csv', index = False)
+            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/mostviewad.csv', index = False)
             # print("---------crawling file save 완료------------")
             data = "크롤링완료"
 
@@ -1123,7 +1123,7 @@ class SuperChat():
                     # for tag in protag:
                     # print("태그 = ", tag)
                     # print("주간_유료컨텐츠조회수 = ", superchat)
-                    # # print("슈퍼챗 개수 = ", superchat_num)
+                    # print("슈퍼챗 개수 = ", superchat_num)
                     # print("=" * 100)
 
 
@@ -1138,7 +1138,7 @@ class SuperChat():
 
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '주간_유료컨텐츠조회수']
-            df.to_csv('./savedata/mostviewad_week.csv', index = False)
+            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/mostviewad_week.csv', index = False)
             # print("---------crawling file save 완료------------")
             data = "크롤링완료"
 
