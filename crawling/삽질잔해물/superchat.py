@@ -22,6 +22,7 @@ class SuperChat():
         driver.implicitly_wait(2)
         print("-----스크롤 페이지 이동-----")
 
+        soup = BeautifulSoup(driver.page_source, "lxml" )
 
         # scroll 쭉 내리기, scroll 기다리는 시간 지정
         SCROLL_PAUSE_TIME = 0.7
@@ -43,7 +44,7 @@ class SuperChat():
             last_height = new_height
         print("-----화면 제일 하단 스크롤 로딩 완료----")
 
-        soup = BeautifulSoup(driver.page_source, "lxml" )
+        # soup = BeautifulSoup(driver.page_source, "lxml" )
 
         # 정보박스 찾기
         boxitem = soup.select("tbody > .chart__row")
@@ -55,7 +56,7 @@ class SuperChat():
         # 정보 가져오기
         try:
             # 광고는 text가 없어서 광고 없애려고 for문 씀
-            for item in boxitem:
+            for item in boxitem[:1]:
                 noads = item.text
 
                 if noads != "":
