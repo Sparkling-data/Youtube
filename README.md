@@ -4,7 +4,7 @@
 <h4> 2021/07/10(토) - 2021/07/18(일)
 <br><br>
 <h2> :dancers: Team</p>
-<h4> <a href = "https://github.com/dlwlsdudo1"><h6>이진영</a></details>&nbsp;,&nbsp;
+<h4> <a href = "https://github.com/dlwlsdudo1">이진영</a></details>&nbsp;,&nbsp;
 <a href = "https://github.com/sujeong-jang-creator">장수정</a></details>&nbsp;,&nbsp;
 <a href = "https://github.com/rnaqpddl123">정주영B </a></details>
 <br><br>
@@ -58,4 +58,8 @@
 <br>
 <img src="https://github.com/Sparkling-data/Youtube/blob/86ef2fe8a3d512acc215b966ba85fcfa5bcb164f/images/%EB%A1%9C%EB%94%A9%EC%84%A4%EB%AA%85.jpg" />
 <img src="https://github.com/Sparkling-data/Youtube/blob/86ef2fe8a3d512acc215b966ba85fcfa5bcb164f/images/text%EC%84%A4%EB%AA%852.jpg" /></details>
+<br>
+
+<h2> :green_heart: Comments </p>
+<h4> <a href = "https://docs.google.com/spreadsheets/d/1GHRnS_jn9kNcs0U3KgC2709szP4h4JdzAzMN-UyXZV4/edit#gid=0">GoogleDocs</a></details>
 <br>
