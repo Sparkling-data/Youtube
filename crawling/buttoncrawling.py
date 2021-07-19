@@ -16,12 +16,17 @@ class SuperChat():
         time.sleep(3)
         driver.implicitly_wait(2)
 
+
         superchat = driver.find_element_by_link_text("슈퍼챗 순위")
         superchat.click()
         time.sleep(3)
         driver.implicitly_wait(2)
         print("-----스크롤 페이지 이동-----")
 
+        # 다른날짜의 데이터를 크롤링할려고 만든 코드
+        # driver.find_element_by_css_selector("#app > div.__window > div > main > div > div.cnavi.cnavi > div > div > div > div:nth-child(5) > ul > li:nth-child(2) > span").click()
+        # time.sleep(3)
+        # driver.implicitly_wait(2)
 
         # scroll 쭉 내리기, scroll 기다리는 시간 지정
         SCROLL_PAUSE_TIME = 0.7
@@ -45,8 +50,14 @@ class SuperChat():
 
         soup = BeautifulSoup(driver.page_source, "lxml" )
 
+        naljja = soup.select("div.chart-header > div.title-bar > div.title-bar__period > span")[0].text
+        asd = re.compile('#\w+')
+        naljja = re.findall("\d+", naljja)
+        naljja = "".join(naljja)
+
         # 정보박스 찾기
         boxitem = soup.select("tbody > .chart__row")
+
         # # print(boxitem)
         print("-----스크롤 박스 찾기 완료-----")
         time.sleep(3)
@@ -91,7 +102,7 @@ class SuperChat():
             # pandas로 crawling data exel 저장
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '일일 슈퍼챗수입', '일일 슈퍼챗개수']
-            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/supercraw.csv', index = False)
+            df.to_csv(f'./csv_savedata/{naljja}supercraw.csv', index = False)
             print("---------crawling file save 완료------------")
             data = "크롤링완료"
 
@@ -133,6 +144,11 @@ class SuperChat():
 
         soup = BeautifulSoup(driver.page_source, "lxml" )
 
+        naljja = soup.select("div.chart-header > div.title-bar > div.title-bar__period > span")[0].text
+        asd = re.compile('#\w+')
+        naljja = re.findall("\d+", naljja)
+        naljja = "".join(naljja)
+
         boxitem = soup.select("tbody > .chart__row")
         time.sleep(3)
 
@@ -164,7 +180,7 @@ class SuperChat():
 
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '주간 슈퍼챗수입', '주간 슈퍼챗개수']
-            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/supercraw_week.csv', index = False)
+            df.to_csv(f'./csv_savedata/{naljja}supercraw_week.csv', index = False)
             data = "크롤링완료"
 
         return data
@@ -201,6 +217,11 @@ class SuperChat():
 
         soup = BeautifulSoup(driver.page_source, "lxml" )
 
+        naljja = soup.select("div.chart-header > div.title-bar > div.title-bar__period > span")[0].text
+        asd = re.compile('#\w+')
+        naljja = re.findall("\d+", naljja)
+        naljja = "".join(naljja)
+
         boxitem = soup.select("tbody > .chart__row")
         time.sleep(3)
         try:
@@ -229,7 +250,7 @@ class SuperChat():
 
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '최고 동시 시정자수']
-            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/LiveRank.csv', index = False)
+            df.to_csv(f'./csv_savedata/{naljja}LiveRank.csv', index = False)
             data = "크롤링완료"
 
         return data
@@ -263,6 +284,12 @@ class SuperChat():
                 break
             last_height = new_height
         soup = BeautifulSoup(driver.page_source, "lxml" )
+
+        naljja = soup.select("div.chart-header > div.title-bar > div.title-bar__period > span")[0].text
+        asd = re.compile('#\w+')
+        naljja = re.findall("\d+", naljja)
+        naljja = "".join(naljja)
+
         boxitem = soup.select("tbody > .chart__row")
         time.sleep(3)
 
@@ -292,7 +319,7 @@ class SuperChat():
 
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '주간 최고 동시 시청자수']
-            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/LiveRank_week.csv', index = False)
+            df.to_csv(f'./csv_savedata/{naljja}LiveRank_week.csv', index = False)
             data = "크롤링완료"
 
         return data
@@ -325,6 +352,11 @@ class SuperChat():
             last_height = new_height
 
         soup = BeautifulSoup(driver.page_source, "lxml" )
+
+        naljja = soup.select("div.chart-header > div.title-bar > div.title-bar__period > span")[0].text
+        asd = re.compile('#\w+')
+        naljja = re.findall("\d+", naljja)
+        naljja = "".join(naljja)
 
         boxitem = soup.select("tbody > .chart__row")
         time.sleep(3)
@@ -363,7 +395,7 @@ class SuperChat():
             driver.close()
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '일일조회수', '일일 좋아요 수']
-            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/mostviewvideo.csv', index = False)
+            df.to_csv(f'./csv_savedata/{naljja}mostviewvideo.csv', index = False)
             data = "크롤링완료"
 
         return data
@@ -396,6 +428,12 @@ class SuperChat():
             last_height = new_height
 
         soup = BeautifulSoup(driver.page_source, "lxml" )
+
+        naljja = soup.select("div.chart-header > div.title-bar > div.title-bar__period > span")[0].text
+        asd = re.compile('#\w+')
+        naljja = re.findall("\d+", naljja)
+        naljja = "".join(naljja)
+
         boxitem = soup.select("tbody > .chart__row")
         time.sleep(3)
         
@@ -432,7 +470,7 @@ class SuperChat():
             driver.close()
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '주간 조회수', '주간 좋아요 수']
-            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/mostviewvideo_week.csv', index = False)
+            df.to_csv(f'./csv_savedata/{naljja}mostviewvideo_week.csv', index = False)
             data = "크롤링완료"
 
         return data
@@ -471,6 +509,11 @@ class SuperChat():
 
         soup = BeautifulSoup(driver.page_source, "lxml" )
 
+        naljja = soup.select("div.chart-header > div.title-bar > div.title-bar__period > span")[0].text
+        asd = re.compile('#\w+')
+        naljja = re.findall("\d+", naljja)
+        naljja = "".join(naljja)
+
         boxitem = soup.select("tbody > .chart__row")
         time.sleep(3)
 
@@ -501,7 +544,7 @@ class SuperChat():
             driver.close()
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '일일_신규구독자', '전체구독자']
-            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/subsoaring.csv', index = False)
+            df.to_csv(f'./csv_savedata/{naljja}subsoaring.csv', index = False)
             data = "크롤링완료"
 
         return data
@@ -542,6 +585,11 @@ class SuperChat():
 
         soup = BeautifulSoup(driver.page_source, "lxml" )
 
+        naljja = soup.select("div.chart-header > div.title-bar > div.title-bar__period > span")[0].text
+        asd = re.compile('#\w+')
+        naljja = re.findall("\d+", naljja)
+        naljja = "".join(naljja)
+
         boxitem = soup.select("tbody > .chart__row")
         time.sleep(3)
 
@@ -572,7 +620,7 @@ class SuperChat():
             driver.close()
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '주간_신규구독자', '전체구독자']
-            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/subsoaring_week.csv', index = False)
+            df.to_csv(f'./csv_savedata/{naljja}subsoaring_week.csv', index = False)
             data = "크롤링완료"
 
         return data
@@ -611,6 +659,11 @@ class SuperChat():
 
         soup = BeautifulSoup(driver.page_source, "lxml" )
 
+        naljja = soup.select("div.chart-header > div.title-bar > div.title-bar__period > span")[0].text
+        asd = re.compile('#\w+')
+        naljja = re.findall("\d+", naljja)
+        naljja = "".join(naljja)
+
         boxitem = soup.select("tbody > .chart__row")
         time.sleep(3)
 
@@ -641,7 +694,7 @@ class SuperChat():
             driver.close()
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '일일_조회수']
-            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/mostview.csv', index = False)
+            df.to_csv(f'./csv_savedata/{naljja}mostview.csv', index = False)
             data = "크롤링완료"
 
         return data
@@ -679,6 +732,11 @@ class SuperChat():
 
         soup = BeautifulSoup(driver.page_source, "lxml" )
 
+        naljja = soup.select("div.chart-header > div.title-bar > div.title-bar__period > span")[0].text
+        asd = re.compile('#\w+')
+        naljja = re.findall("\d+", naljja)
+        naljja = "".join(naljja)
+
         boxitem = soup.select("tbody > .chart__row")
         time.sleep(3)
 
@@ -708,7 +766,7 @@ class SuperChat():
             driver.close()
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '주간_조회수']
-            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/mostview_week.csv', index = False)
+            df.to_csv(f'./csv_savedata/{naljja}mostview_week.csv', index = False)
             data = "크롤링완료"
 
         return data
@@ -747,6 +805,11 @@ class SuperChat():
 
         soup = BeautifulSoup(driver.page_source, "lxml" )
 
+        naljja = soup.select("div.chart-header > div.title-bar > div.title-bar__period > span")[0].text
+        asd = re.compile('#\w+')
+        naljja = re.findall("\d+", naljja)
+        naljja = "".join(naljja)
+
         boxitem = soup.select("tbody > .chart__row")
         time.sleep(3)
 
@@ -779,7 +842,7 @@ class SuperChat():
 
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '일일_유료컨텐츠조회수']
-            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/mostviewad.csv', index = False)
+            df.to_csv(f'./csv_savedata/{naljja}mostviewad.csv', index = False)
             data = "크롤링완료"
 
         return data
@@ -819,6 +882,11 @@ class SuperChat():
 
         soup = BeautifulSoup(driver.page_source, "lxml" )
 
+        naljja = soup.select("div.chart-header > div.title-bar > div.title-bar__period > span")[0].text
+        asd = re.compile('#\w+')
+        naljja = re.findall("\d+", naljja)
+        naljja = "".join(naljja)
+
         boxitem = soup.select("tbody > .chart__row")
         time.sleep(3)
 
@@ -850,7 +918,7 @@ class SuperChat():
 
             df = pd.DataFrame(results)
             df.columns = ['순위', '채널명', '태그', '주간_유료컨텐츠조회수']
-            df.to_csv('C:/Github/Youtube/crawling/csv_savedata/mostviewad_week.csv', index = False)
+            df.to_csv(f'./csv_savedata/{naljja}mostviewad_week.csv', index = False)
             data = "크롤링완료"
 
         return data
