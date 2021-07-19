@@ -10,8 +10,8 @@ class googlechart:
     # chart_num은 가져올 데이터의 양을 결정하고 chart_date는 가져올 파일명을 결정함
     def superchat(self,chart_num, chart_date):
         try:
-
-            df = pd.read_csv(f"./csv_savedata/{chart_date}supercraw.csv")
+                    #finalresult\csv_savedata
+            df = pd.read_csv(f"./finalresult//csv_savedata/{chart_date}supercraw.csv")
 
 
             chart_num = int(chart_num)
@@ -38,7 +38,7 @@ class googlechart:
     def LiveRank(self,chart_num, chart_date):
         try:
 
-            df = pd.read_csv(f"./csv_savedata/{chart_date}LiveRank.csv")
+            df = pd.read_csv(f"./finalresult/csv_savedata/{chart_date}LiveRank.csv")
 
             chart_num = int(chart_num)
             df = df[0:chart_num]
@@ -63,7 +63,7 @@ class googlechart:
     def mostviewvideo(self,chart_num, chart_date):
         try:
 
-            df = pd.read_csv(f"./csv_savedata/{chart_date}mostviewvideo.csv")
+            df = pd.read_csv(f"./finalresult/csv_savedata/{chart_date}mostviewvideo.csv")
 
             chart_num = int(chart_num)
             df = df[0:chart_num]
@@ -87,7 +87,7 @@ class googlechart:
     def subsoaring(self,chart_num, chart_date):
         try:
 
-            df = pd.read_csv(f"./csv_savedata/{chart_date}subsoaring.csv")
+            df = pd.read_csv(f"./finalresult/csv_savedata/{chart_date}subsoaring.csv")
 
             chart_num = int(chart_num)
             df = df[0:chart_num]
@@ -109,7 +109,7 @@ class googlechart:
     def mostview(self,chart_num, chart_date):
         try:
 
-            df = pd.read_csv(f"./csv_savedata/{chart_date}mostviewvideo.csv")
+            df = pd.read_csv(f"./finalresult/csv_savedata/{chart_date}mostviewvideo.csv")
 
             chart_num = int(chart_num)
             df = df[0:chart_num]
@@ -132,7 +132,7 @@ class googlechart:
     def mostviewad(self,chart_num, chart_date):
         try:
 
-            df = pd.read_csv(f"./csv_savedata/{chart_date}mostviewad.csv")
+            df = pd.read_csv(f"./finalresult/csv_savedata/{chart_date}mostviewad.csv")
 
             chart_num = int(chart_num)
             df = df[0:chart_num]
@@ -152,7 +152,7 @@ class googlechart:
     def superchat_week(self,chart_num2, chart_date2):
         try:
 
-            df = pd.read_csv(f"./csv_savedata/{chart_date2}supercraw_week.csv")
+            df = pd.read_csv(f"./finalresult/csv_savedata/{chart_date2}supercraw_week.csv")
 
             chart_num = int(chart_num2)
             df = df[0:chart_num]

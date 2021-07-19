@@ -1,187 +1,424 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>YouTube - Charts</title>
-        <!-- <link href="css/styles.css" rel="stylesheet" /> -->
-        <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}" />
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script> -->
-    </head>
-    <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="/">Youtube - Team</a>
-            <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <!-- <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" /> -->
-                    <!-- <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button> -->
-                </div>
-            </form>
-            <!-- Navbar-->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <!-- <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a> -->
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <!-- <li><a class="dropdown-item" href="#!">Settings</a></li>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>YouTube 트렌드 분석 team - 이진영, 장수정, 주삐님</title>
+    <!-- <link href="css/styles.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}" />
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script> -->
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="/">YouTube 트렌드 분석 team - 이진영, 장수정, 주삐님</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <!-- <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" /> -->
+                <!-- <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button> -->
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <!-- <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a> -->
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <!-- <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="#!">Logout</a></li> -->
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <!-- <div class="sb-sidenav-menu-heading">Core</div> -->
-                            <!-- <a class="nav-link" href="index.html"> -->
-                                <!-- <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div> -->
-                                <!-- Dashboard -->
-                            <!-- </a> -->
-                            <!-- <div class="sb-sidenav-menu-heading">Interface</div> -->
-                            <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"> -->
-                                <!-- <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div> -->
-                                <!-- Layouts -->
-                                <!-- <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div> -->
-                            <!-- </a> -->
-                            <!-- <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <!-- <div class="sb-sidenav-menu-heading">Core</div> -->
+                        <!-- <a class="nav-link" href="index.html"> -->
+                        <!-- <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div> -->
+                        <!-- Dashboard -->
+                        <!-- </a> -->
+                        <!-- <div class="sb-sidenav-menu-heading">Interface</div> -->
+                        <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"> -->
+                        <!-- <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div> -->
+                        <!-- Layouts -->
+                        <!-- <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div> -->
+                        <!-- </a> -->
+                        <!-- <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="layout-static.html">Static Navigation</a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
                                 </nav>
                             </div> -->
-                            <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                        <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Pages -->
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <!-- <a class="nav-link" href="login.html">Login</a>
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth">
+                                    Authentication
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <!-- <a class="nav-link" href="login.html">Login</a>
                                             <a class="nav-link" href="register.html">Register</a>
                                             <a class="nav-link" href="password.html">Forgot Password</a> -->
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div>
-                            <div class="sb-sidenav-menu-heading">YouTube</div>
-                            <a class="nav-link" href="/charts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="/">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Crawlling
-                            </a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseError" aria-expanded="false"
+                                    aria-controls="pagesCollapseError">
+                                    Error
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                    </nav>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="sb-sidenav-menu-heading">YouTube</div>
+                        <a class="nav-link" href="/charts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Charts
+                        </a>
+                        <a class="nav-link" href="/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            Crawlling
+                        </a>
+                    </div>
+                </div>
+
+
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4">Charts</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item"><a href="/">Crawlling</a></li>
+                        <li class="breadcrumb-item active"><a href="/charts">Charts</a></li>
+                    </ol>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            Crawling 후 GoogleChart 시각화
+                            <!-- <a target="_blank" href="https://www.chartjs.org/docs/latest/">Chart.js documentation</a> -->
                         </div>
                     </div>
-
-
-                </nav>
-            </div>
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Charts</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="/">Crawlling</a></li>
-                            <li class="breadcrumb-item active"><a href="/charts">Charts</a></li>
-                        </ol>
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                Team - YouTube
-                                <!-- <a target="_blank" href="https://www.chartjs.org/docs/latest/">Chart.js documentation</a> -->
-                            </div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-chart-area me-1">일간Chart</i>
+                            <input type="text" id="chart_date" placeholder="날짜를 입력해주세요 ex)20210717"
+                                value="20210717"><br>
+                            <input type="text" id="chart_num" placeholder="원하는 데이터 개수를 입력해주세요"><br>
+                            <button onclick="supercraw_chart()">슈퍼챗 순위</button>
+                            <button onclick="LiveRank_chart()">라이브 시청자 순위</button>
+                            <button onclick="mostviewvideo_chart()">인기 순위</button>
+                            <button onclick="subsoaring_chart()">구독자 급상승 순위</button>
+                            <button onclick="mostview_chart()">최다 조회 영상</button>
+                            <button onclick="mostviewad_chart()">최다 조회 광고</button>
+                            <div id="piechart" style="width: 900px; height: 500px;"></div>
                         </div>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-chart-area me-1">관계차트 1</i>
-                                
-                            </div>
-                            <div class="card-body"><canvas id="myAreaChart" width="100%" height="70"></canvas></div>
-                            <div class="card-footer small text-muted">Updated 21-07-19 01:57 AM</div>
-                        </div><br>
+                        <!-- <div class="card-body"><canvas id="piechart" width="100%" height="70"></canvas></div> -->
+                        <div class="card-footer small text-muted">Updated 21-07-19 01:57 AM</div>
+                    </div><br>
 
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-chart-area me-1">관계차트 2</i>
-                                
-                            </div>
-                            <div class="card-body"><canvas id="myAreaChart" width="100%" height="70"></canvas></div>
-                            <div class="card-footer small text muted">Updated 21-07-19 01:57 AM</div>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-chart-area me-1">주간Chart</i>
+                            <input type="text" id="chart_date2" placeholder="날짜를 입력해주세요 ex)20210717"
+                                value="202107050711"><br>
+                            <input type="text" id="chart_num2" placeholder="원하는 데이터 개수를 입력해주세요"><br>
+                            <button onclick="supercraw_week_chart()">슈퍼챗 순위</button>
+                            <div id="piechart2" style="width: 900px; height: 500px;"></div>
+                        </div>
+                        <!-- <div class="card-body"><canvas id="myAreaChart" width="100%" height="70"></canvas></div> -->
+                        <div class="card-footer small text muted">Updated 21-07-19 01:57 AM</div>
 
-                            </div><br>
+                    </div><br>
 
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    <i class="fas fa-chart-area me-1">관계차트 3</i>
-                                    
-                                </div>
-                                <div class="card-body"><canvas id="myAreaChart" width="100%" height="70"></canvas></div>
-                                <div class="card-footer small text muted">Updated 21-07-19 01:57 AM</div>
-    
-                                </div><br>
+            </main>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                google.charts.load('current', { 'packages': ['corechart'] });
 
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area me-1">관계차트 4</i>
-                                        
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="70"></canvas></div>
-                                    <div class="card-footer small text muted">Updated 21-07-19 01:57 AM</div>
-        
-                                    </div><br>
+                function supercraw_chart() {
+                    const xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증   
 
-                                    <div class="card mb-4">
-                                        <div class="card-header">
-                                            <i class="fas fa-chart-area me-1">관계차트 5</i>
-                                            
-                                        </div>
-                                        <div class="card-body"><canvas id="myAreaChart" width="100%" height="70"></canvas></div>
-                                        <div class="card-footer small text muted">Updated 21-07-19 01:57 AM</div>
-            
-                                        </div><br>
+                            data = this.responseText;
+                            data = eval(data);
+                            console.log(data);
 
-                                        <div class="card mb-4">
-                                            <div class="card-header">
-                                                <i class="fas fa-chart-area me-1">관계차트 6</i>
-                                                
-                                            </div>
-                                            <div class="card-body"><canvas id="myAreaChart" width="100%" height="70"></canvas></div>
-                                            <div class="card-footer small text muted">Updated 21-07-19 01:57 AM</div>
-                
-                                            </div><br>
-                        
-                </main>
+                            console.log(data[2].일일_슈퍼챗수입);
 
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+                            chas = [['Task', 'Hours per Day']];
+
+                            for (i in data) {
+
+                                chas.push([data[i].채널명, data[i].일일_슈퍼챗수입]);
+                            }
+
+                            var chart_data = google.visualization.arrayToDataTable(chas);
+                            var options = {
+                                title: '슈퍼챗 수입 비율'
+                            };
+                            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                            chart.draw(chart_data, options);
+                        }
+                    };
+                    xhttp.open("post", "supercraw_chart");
+                    queryString = "chart_num=" + document.getElementById("chart_num").value + "&chart_date=" + document.getElementById("chart_date").value;
+
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhttp.send(queryString);
+                }
+
+                function LiveRank_chart() {
+                    const xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증   
+
+                            data = this.responseText;
+                            data = eval(data);
+                            console.log(data);
+
+                            console.log(data[2].최고_동시_시청자수);
+
+                            chas = [['Task', 'Hours per Day']];
+
+                            for (i in data) {
+
+                                chas.push([data[i].채널명, data[i].최고_동시_시청자수]);
+                            }
+
+                            var chart_data = google.visualization.arrayToDataTable(chas);
+                            var options = {
+                                title: '최고 동시 시청자수'
+                            };
+                            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                            chart.draw(chart_data, options);
+
+
+
+
+                        }
+                    };
+                    xhttp.open("post", "LiveRank_chart");
+                    queryString = "chart_num=" + document.getElementById("chart_num").value + "&chart_date=" + document.getElementById("chart_date").value;
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhttp.send(queryString);
+                }
+
+
+
+                function mostviewvideo_chart() {
+                    const xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증   
+
+                            data = this.responseText;
+                            data = eval(data);
+                            console.log(data);
+
+                            console.log(data[2].일일조회수);
+
+                            chas = [['Task', 'Hours per Day']];
+
+                            for (i in data) {
+
+                                chas.push([data[i].채널명, data[i].일일조회수]);
+                            }
+
+                            var chart_data = google.visualization.arrayToDataTable(chas);
+                            var options = {
+                                title: '최고 인기 영상'
+                            };
+                            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                            chart.draw(chart_data, options);
+
+
+
+
+                        }
+                    };
+                    xhttp.open("post", "mostviewvideo_chart");
+                    queryString = "chart_num=" + document.getElementById("chart_num").value + "&chart_date=" + document.getElementById("chart_date").value;
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhttp.send(queryString);
+                }
+
+
+                function subsoaring_chart() {
+                    const xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증   
+
+                            data = this.responseText;
+                            data = eval(data);
+                            console.log(data);
+
+                            console.log(data[2].전체구독자);
+
+                            chas = [['Task', 'Hours per Day']];
+
+                            for (i in data) {
+
+                                chas.push([data[i].채널명, data[i].전체구독자]);
+                            }
+
+                            var chart_data = google.visualization.arrayToDataTable(chas);
+                            var options = {
+                                title: '구독자수 비율'
+                            };
+                            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                            chart.draw(chart_data, options);
+
+
+
+
+                        }
+                    };
+                    xhttp.open("post", "subsoaring_chart");
+                    queryString = "chart_num=" + document.getElementById("chart_num").value + "&chart_date=" + document.getElementById("chart_date").value;
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhttp.send(queryString);
+                }
+
+                function mostview_chart() {
+                    const xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증   
+
+                            data = this.responseText;
+                            data = eval(data);
+                            console.log(data);
+
+                            console.log(data[2].일일조회수);
+
+                            chas = [['Task', 'Hours per Day']];
+
+                            for (i in data) {
+
+                                chas.push([data[i].채널명, data[i].일일조회수]);
+                            }
+
+                            var chart_data = google.visualization.arrayToDataTable(chas);
+                            var options = {
+                                title: '최다 조회 영상'
+                            };
+                            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                            chart.draw(chart_data, options);
+
+
+
+
+                        }
+                    };
+                    xhttp.open("post", "mostview_chart");
+                    queryString = "chart_num=" + document.getElementById("chart_num").value + "&chart_date=" + document.getElementById("chart_date").value;
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhttp.send(queryString);
+                }
+
+                function mostviewad_chart() {
+                    const xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증   
+
+                            data = this.responseText;
+                            data = eval(data);
+                            console.log(data);
+
+                            console.log(data[2].일일_유료컨텐츠조회수);
+
+                            chas = [['Task', 'Hours per Day']];
+
+                            for (i in data) {
+
+                                chas.push([data[i].채널명, data[i].일일_유료컨텐츠조회수]);
+                            }
+
+                            var chart_data = google.visualization.arrayToDataTable(chas);
+                            var options = {
+                                title: '최다 조회 광고'
+                            };
+                            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                            chart.draw(chart_data, options);
+
+
+
+
+                        }
+                    };
+                    xhttp.open("post", "mostviewad_chart");
+                    queryString = "chart_num=" + document.getElementById("chart_num").value + "&chart_date=" + document.getElementById("chart_date").value;
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhttp.send(queryString);
+                }
+
+
+                function supercraw_week_chart() {
+                    const xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {  // 정상응답 완료 여부 검증   
+
+                            data = this.responseText;
+                            data = eval(data);
+                            console.log(data);
+
+                            // console.log(data[2].주간_슈퍼챗수입);
+
+                            chas = [['Task', 'Hours per Day']];
+
+                            for (i in data) {
+
+                                chas.push([data[i].채널명, data[i].주간_슈퍼챗수입]);
+                            }
+
+                            var chart_data = google.visualization.arrayToDataTable(chas);
+                            var options = {
+                                title: '주간 슈퍼챗 수입 비율'
+                            };
+                            var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+                            chart.draw(chart_data, options);
+                        }
+                    };
+                    xhttp.open("post", "supercraw_chart_week");
+                    queryString = "chart_num2=" + document.getElementById("chart_num2").value + "&chart_date2=" + document.getElementById("chart_date2").value;
+
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhttp.send(queryString);
+                }
+            </script>
+            <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="assets/demo/chart-pie-demo.js"></script> -->
-    </body>
+</body>
+
 </html>

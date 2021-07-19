@@ -8,7 +8,17 @@ app = Flask(__name__)
 @app.route('/', methods=["GET"])
 def index_view():
 
+    return render_template('tables.html')
+
+@app.route('/test', methods=["GET"])
+def index_view2():
+
     return render_template('prototype.html')
+
+@app.route('/charts', methods=["GET"])
+def index_view1():
+
+    return render_template('charts.html')
 
 
 @app.route('/supercraw', methods=["get"])
