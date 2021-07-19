@@ -1,13 +1,14 @@
 from flask.json import jsonify
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,url_for
 from buttoncrawling import SuperChat
+from chart import googlechart
 
 app = Flask(__name__)
 
-@app.route('/', methods=["GET"])
-def index_view():
+# @app.route('/', methods=["GET"])
+# def index_view():
 
-    return render_template('prototype.html')
+#     return render_template('prototype.html')
 
 
 @app.route('/supercraw', methods=["get"])
@@ -65,7 +66,7 @@ def mostview_view():
 
 
 @app.route('/mostview_week', methods=["get"])
-def smostview_week_view():
+def mostview_week_view():
 
     return SuperChat().mostview_week()
 
@@ -80,6 +81,24 @@ def mostviewad_view():
 def mostviewad_week_view():
 
     return SuperChat().mostviewad_week()
+
+@app.route('/', methods = ["GET"])
+def table_view():
+
+    return render_template('tables.html')
+
+@app.route('/charts', methods = ['GET'])
+def chart_view():
+
+    return render_template('charts.html')
+
+@app.route('/chart', methods=["post"])
+def superchat_chart():
+
+    # print(googlechart().superchat(request.form.get("chart_num")))
+
+    return googlechart().superchat(request.form.get("chart_num"))
+
 
 
 
